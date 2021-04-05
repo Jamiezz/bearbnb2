@@ -9,6 +9,10 @@
     width: 100%;
   }
 
+  p {
+    justify-content: center;
+  }
+
   .NavBar__icon {
     object-fit: contain;
     height: 100px;

@@ -1,60 +1,75 @@
-* {
+/* * {
   outline: 1px solid red !important;
-}
+} */
+/* .select {
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+} */
 
 .search {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 24px;
-    width: 848px;
-    height: 64px;
-    color: #222222;
-    font-family: Airbnb;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    border-radius: 32px;
-    /* margin-left: 350px; */
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
+
+  text-align: center;
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 24px;
+  width: 75%;
+  height: 32px;
+  color: #222222;
+  font-family: Airbnb;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid;
+  border-radius: 32px;
+  /* margin-left: 350px; */
+  margin-left: auto;
+  margin-right: auto;
+
   }
 
   .search > div {
-    border-radius: .5px;
-    border: none;
-    align-items: center;
-    padding: 10px 30px 10px 30px;
-    box-shadow: 3px 0px 0px rgba(155, 153, 153, 0.644);
+  flex: 1 1 0; /* Flex-basis 0 means divs will all take up the same amount of horizontal space. */
+  border-radius: .5px;
+  border: 1px;
+  align-items: center;
+  padding: 10px 30px;
+
+  }
+
+  .search > div:hover {
+  border-radius: 999px;
+  background-color:rgba(235,235,235)
+
   }
 
   .search-button > a {
-    font-size: 50px;
-    vertical-align: middle;
-    width: auto;
-    color: #F27C21;
-    transition: 0.5s;
+  align-self: center;
+  font-size: 50px;
+  vertical-align: middle;
+  width: auto;
+  color: #F27C21;
+  transition: 0.5s;
   }
   .search-button > a:hover {
     color: #cf691a;
   }
   .search-button {
-    /* display:flex;
-    flex-direction: column;
-    justify-content: center; */
-    outline: inherit;
-    border: none;
-    background-color: transparent;
-
-    transition: transform 500ms;
-    will-change: transform;
-
+  /* display:flex;
+  flex-direction: column;
+  justify-content: center; */
+  outline: inherit;
+  border: none;
+  background-color: transparent;
+  transition: transform 500ms;
+  will-change: transform;
   }
 
   .search-button:hover{
-    cursor: pointer;
-    transform: translateY(+2px);
+  cursor: pointer;
+  transform: translateY(+2px);
 
 
   }
@@ -63,12 +78,13 @@
   #locationBox,
   #select-field,
   #place-search {
-    font-family: Airbnb;
-    border-radius: 32px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.0);
+  font-size: 10px;
+  font-family: Airbnb;
+  border-radius: 32px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.0);
   }
 
   .nice-dates-day {
-    font-family: Airbnb;
+  font-family: Airbnb;
   }

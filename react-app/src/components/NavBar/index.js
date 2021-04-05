@@ -1,6 +1,7 @@
 import React from 'react'
 import './NavBar.css'
 import { Link } from "react-router-dom";
+import airbnb_logo from "../../img/airbnb-logo.png"
 
 function NavBar() {
     return (
@@ -8,8 +9,8 @@ function NavBar() {
             <Link to='/'>
                 <img
                     className="NavBar__icon"
-                    src="bearpicture(airbnblogo).png"
-                    alt=""
+                    src={airbnb_logo}
+                    alt="logo"
                 />
             </Link>
 

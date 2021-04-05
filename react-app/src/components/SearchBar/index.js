@@ -19,7 +19,7 @@ const dateConverter = (dateObj) => {
   return moment(dateObj).format("YYYY-MM-DD")
 }
 
-export function DatePickerExample({setSearchDate}) {
+export function DatePickerExample({ setSearchDate }) {
   const [date, setDate] = useState();
   const currentDate = new Date();
 
@@ -32,7 +32,7 @@ export function DatePickerExample({setSearchDate}) {
       format="MM-dd-yyy"
       onDateChange={setDate}
       minimumDate={currentDate}
-      // locale={enGB}
+    // locale={enGB}
     >
       {({ inputProps, focused }) => (
         <input
@@ -78,7 +78,7 @@ const Search = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(searchMap({ aircraft, searchDate}));
+    await dispatch(searchMap({ aircraft, searchDate }));
     return history.push('/map')
   };
 
@@ -113,26 +113,25 @@ const Search = () => {
           <div>Flying Date</div>
         </div>
         <div>
-          <div>
-
+          {/* <div className="select"> */}
+            <div>What are you flying?</div>
+            <select
+              id="select-field"
+              value={aircraft}
+              onChange={(e) => setAircraft(e.target.value)}
+            >
+              <option value={""}>pick an aircraft</option>
+              <option value={"HangGlider"}>Hang glider </option>
+              <option value={"Helicopter"}>Helicopter</option>
+              <option value={"HotAirBalloon"}>Hot air balloon</option>
+              <option value={"JetPack"}>Jet pack</option>
+              <option value={"LiteAircraft"}>Lite aircraft</option>
+              <option value={"PrivateJet"}>Private Jet</option>
+              <option value={"SkyDiving"}>Sky Diving</option>
+              <option value={"WingSuit"}>Wing suit</option>
+            </select>
           </div>
-          <select
-            id="select-field"
-            value={aircraft}
-            onChange={(e) => setAircraft(e.target.value)}
-          >
-            <option value={""}>pick an aircraft</option>
-            <option value={"HangGlider"}>Hang glider </option>
-            <option value={"Helicopter"}>Helicopter</option>
-            <option value={"HotAirBalloon"}>Hot air balloon</option>
-            <option value={"JetPack"}>Jet pack</option>
-            <option value={"LiteAircraft"}>Lite aircraft</option>
-            <option value={"PrivateJet"}>Private Jet</option>
-            <option value={"SkyDiving"}>Sky Diving</option>
-            <option value={"WingSuit"}>Wing suit</option>
-          </select>
-          <div>What are you flying?</div>
-        </div>
+        {/* </div> */}
         <div>
           <div>Guests</div>
         </div>
