@@ -9,16 +9,14 @@
 } */
 
 .search {
-
   text-align: center;
-  font-size: 10px;
+  font-size: 14px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  padding: 0 24px;
-  width: 75%;
-  height: 32px;
+  width: 60%;
+  height: 64px;
   color: #222222;
   font-family: Airbnb;
   background-color: rgba(255, 255, 255, 0.5);
@@ -35,20 +33,22 @@
   border-radius: .5px;
   border: 1px;
   align-items: center;
-  padding: 10px 30px;
-
+  flex: 1 1 0;
   }
+
+  .search > div:active {
+    border-radius: 999px;
+    background-color:rgb(134, 131, 131)
+}
 
   .search > div:hover {
   border-radius: 999px;
   background-color:rgba(235,235,235)
-
   }
 
-  .search-button > a {
+  /* .search-button > a {
   align-self: center;
   font-size: 50px;
-  vertical-align: middle;
   width: auto;
   color: #F27C21;
   transition: 0.5s;
@@ -57,15 +57,12 @@
     color: #cf691a;
   }
   .search-button {
-  /* display:flex;
-  flex-direction: column;
-  justify-content: center; */
   outline: inherit;
   border: none;
   background-color: transparent;
   transition: transform 500ms;
   will-change: transform;
-  }
+  } */
 
   .search-button:hover{
   cursor: pointer;
@@ -78,7 +75,7 @@
   #locationBox,
   #select-field,
   #place-search {
-  font-size: 10px;
+  font-size: 14px;
   font-family: Airbnb;
   border-radius: 32px;
   border: none;

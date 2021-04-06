@@ -2,18 +2,15 @@ import "./SearchBar.css";
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-// import { enGB } from "date-fns/locale";
 import { DatePicker } from "react-nice-dates";
+// import before from "../img/magnifying_no_background"
+// import after from"../img/search_no_background"
 import moment from 'moment';
+import SearchButton from "./SearchButton"
 
-// import {
-//   Listbox,
-//   ListboxOption,
-// } from "@reach/listbox";
-// import "@reach/listbox/styles.css";
-// import "react-nice-dates/build/style.css";
+
 import { searchMap } from "../../store/location";
-// import {IoSearchCircle} from 'react-icons/io5'
+
 
 const dateConverter = (dateObj) => {
   return moment(dateObj).format("YYYY-MM-DD")
@@ -29,7 +26,7 @@ export function DatePickerExample({ setSearchDate }) {
   return (
     <DatePicker
       date={date}
-      format="MM-dd-yyy"
+      format="MM-dd-yyyy"
       onDateChange={setDate}
       minimumDate={currentDate}
     // locale={enGB}
@@ -47,11 +44,112 @@ export function DatePickerExample({ setSearchDate }) {
 const Search = () => {
   const dispatch = useDispatch();
   const history = useHistory()
+  const [aircraft, setAircraft] = useState("");
+  const [searchDate, setSearchDate] = useState()
+
+
+
+
+  useEffect(() => {
+  }, [searchDate])
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    await dispatch(searchMap({ aircraft, searchDate }));
+    return history.push('/map')
+  };
+
+  return (
+    <div id="search-wrap">
+      <form className="search" onSubmit={onSubmit}>
+        <div className="search-location">
+          <label>
+Preferred State
+          </label>
+        </div>
+        <div>
+          <div>Duration</div>
+        </div>
+        <div>
+            <div>Where would you like to hibernate?</div>
+            <select
+              id="select-field"
+              value={aircraft}
+              onChange={(e) => setAircraft(e.target.value)}
+            >
+              <option value={""}>pick a habitat</option>
+              <option value={"Arctic"}>Arctic</option>
+              <option value={"Woodlands"}>Woodlands</option>
+              <option value={"RockyMountains"}>Rocky Mountains</option>
+              <option value={"Chicago"}>Chicago</option>
+              <option value={"GreenBay"}>Green Bay</option>
+              <option value={"Appalachia"}>Appalachia</option>
+            </select>
+          </div>
+
+        <div>
+          <div>Other Bears?</div>
+        </div>
+          <SearchButton />
+      </form>
+    </div>
+  );
+};
+
+export default Search;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // const [selectVal, setSelectVal] = useState("Flagstaff")
   // const [showCal, setShowCal] = useState(false);
   // const [location, setLocation] = useState("");
-  const [aircraft, setAircraft] = useState("");
-  const [searchDate, setSearchDate] = useState()
+
+
+            {/* <div>
+              <Listbox
+                id="place-search"
+                value={selectVal}
+                // onChange={handleInput}
+                onChange={setSelectVal}
+              >
+                <ListboxOption key={'la'} value="Los Angeles">
+                  Los Angeles
+                </ListboxOption>
+                <ListboxOption key={'f'} value="Flagstaff">
+                  Flagstaff
+                </ListboxOption>
+                <ListboxOption key={'p'} value="Phoenix">
+                  Phoenix
+                </ListboxOption>
+              </Listbox>
+            </div> */}
+
+
+
+
 
 
   // const handleSelect = (selectVal) => {
@@ -72,76 +170,3 @@ const Search = () => {
   // useEffect(() => {
   //   handleSelect(selectVal)
   // }, [selectVal])
-
-  useEffect(() => {
-  }, [searchDate])
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    await dispatch(searchMap({ aircraft, searchDate }));
-    return history.push('/map')
-  };
-
-
-  return (
-    <div id="search-wrap">
-      <form className="search" onSubmit={onSubmit}>
-        <div className="search-location">
-          <label>
-            {/* <div>
-              <Listbox
-                id="place-search"
-                value={selectVal}
-                // onChange={handleInput}
-                onChange={setSelectVal}
-              >
-                <ListboxOption key={'la'} value="Los Angeles">
-                  Los Angeles
-                </ListboxOption>
-                <ListboxOption key={'f'} value="Flagstaff">
-                  Flagstaff
-                </ListboxOption>
-                <ListboxOption key={'p'} value="Phoenix">
-                  Phoenix
-                </ListboxOption>
-              </Listbox>
-            </div> */}
-            Where are you going?
-          </label>
-        </div>
-        <div>
-          <div>Flying Date</div>
-        </div>
-        <div>
-          {/* <div className="select"> */}
-            <div>What are you flying?</div>
-            <select
-              id="select-field"
-              value={aircraft}
-              onChange={(e) => setAircraft(e.target.value)}
-            >
-              <option value={""}>pick an aircraft</option>
-              <option value={"HangGlider"}>Hang glider </option>
-              <option value={"Helicopter"}>Helicopter</option>
-              <option value={"HotAirBalloon"}>Hot air balloon</option>
-              <option value={"JetPack"}>Jet pack</option>
-              <option value={"LiteAircraft"}>Lite aircraft</option>
-              <option value={"PrivateJet"}>Private Jet</option>
-              <option value={"SkyDiving"}>Sky Diving</option>
-              <option value={"WingSuit"}>Wing suit</option>
-            </select>
-          </div>
-        {/* </div> */}
-        <div>
-          <div>Guests</div>
-        </div>
-        <button type="submit" className="search-button">
-          <a href="#">
-          </a>
-        </button>
-      </form>
-    </div>
-  );
-};
-
-export default Search;

@@ -5,8 +5,24 @@
     position: sticky;
     top: 0;
     background-color: white;
-    z-index: 100;
+    /* z-index: 100; */
     width: 100%;
+    font-size: 24px;
+    font-family: Airbnb-bold;
+    border-bottom: 1px solid rgba(168, 59, 16, 0.911);
+  }
+
+  .NavBar > * {
+    text-decoration: none !important;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:visited {
+    text-decoration: none !important;
   }
 
   p {
@@ -15,7 +31,7 @@
 
   .NavBar__icon {
     object-fit: contain;
-    height: 100px;
+    height: 20px;
     margin-left: 20px;
   }
 

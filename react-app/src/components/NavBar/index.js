@@ -1,18 +1,18 @@
 import React from 'react'
 import './NavBar.css'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import airbnb_logo from "../../img/airbnb-logo.png"
 
 function NavBar() {
     return (
         <div className='NavBar'>
-            <Link to='/'>
+            <NavLink to='/'>
                 <img
                     className="NavBar__icon"
                     src={airbnb_logo}
                     alt="logo"
-                />
-            </Link>
+                />BearBnb
+            </NavLink>
 
             <div className='NavBar__center'>
                 <input type="text" />
