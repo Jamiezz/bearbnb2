@@ -9,10 +9,14 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
 import HomePage from "./components/HomePage"
+import Bear from './img/bear-tree.png'
+
+const arrOfImgs = [Bear]
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [currentPic, setCurrentPic] = useState(0)
 
   useEffect(() => {
     (async () => {
@@ -29,9 +33,13 @@ function App() {
   }
 
   return (
+    <>
     <BrowserRouter>
-      <NavBar />
+
+
+      <NavBar  />
       <HomePage />
+
       <Switch>
         <Route path="/login" exact={true}>
           <LoginForm
@@ -53,6 +61,7 @@ function App() {
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
+    </>
   );
 }
 

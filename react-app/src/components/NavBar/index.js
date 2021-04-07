@@ -20,7 +20,20 @@ function NavBar() {
             </div>
 
             <div className='NavBar__right'>
-                <p>Become a bear</p>
+            <NavLink to='/sign-up'>
+                <img
+                    className="NavBar__icon"
+                    src={airbnb_logo}
+                    alt="logo"
+                />Become a Bear
+            </NavLink>
+            <NavLink to='/sign-up'>
+                <img
+                    className="NavBar__icon"
+                    src={airbnb_logo}
+                    alt="logo"
+                />login
+            </NavLink>
             </div>
         </div>
     )

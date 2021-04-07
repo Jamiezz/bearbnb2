@@ -1,7 +1,7 @@
 .image {
-    background-image: url(../../img/Polar-bears-Norway.jpg)
+    background-image: url(../../img/Polar-bears-Norway.jpg);
     height: 100%;
-    background-position: center;
+    /* background-position: center; */
     background-repeat: no-repeat;
     background-size: cover;
 }

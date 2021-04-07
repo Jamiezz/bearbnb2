@@ -18,6 +18,7 @@ const dateConverter = (dateObj) => {
 
 export function DatePickerExample({ setSearchDate }) {
   const [date, setDate] = useState();
+
   const currentDate = new Date();
 
   useEffect(() => {

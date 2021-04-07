@@ -1,11 +1,10 @@
 import React from 'react';
-
+import "./HomePage.css"
 import SearchBar from "../SearchBar"
 
 function HomePage() {
     return (
             <div className="image">
-                <div>In HomePage Div</div>
                 <SearchBar />
             </div>
     )
