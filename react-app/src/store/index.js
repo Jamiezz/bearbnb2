@@ -1,11 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 
-import locationReducer from './location'
+// import locationReducer from './location'
+import modalReducer from './modal'
 
 const rootReducer = combineReducers({
-
-  location: locationReducer
+  modal: modalReducer,
+  // location: locationReducer
 });
 
 let enhancer;
