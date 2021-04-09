@@ -24,7 +24,6 @@ function NavBar() {
                 <input type="text" />
             </div>
             <div className='NavBar__right'>
-                {/* <NavLink to='/sign-up'> */}
 
             <div>
                     <img
@@ -33,7 +32,6 @@ function NavBar() {
                         src={airbnb_logo}
                         alt="logo"
                     /> Become a Bear </div>
-                {/* </NavLink> */}
                 < NavLink to='/login' >
                     <img
                         className="NavBar__icon"
