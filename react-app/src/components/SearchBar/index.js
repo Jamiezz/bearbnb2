@@ -2,11 +2,9 @@ import "./SearchBar.css";
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { DatePicker } from "react-nice-dates";
-// import before from "../img/magnifying_no_background"
-// import after from"../img/search_no_background"
 import moment from 'moment';
 import SearchButton from "./SearchButton"
+import DatePicker from 'react-date-picker'
 
 
 import { searchMap } from "../../store/location";
@@ -45,9 +43,9 @@ export function DatePickerExample({ setSearchDate }) {
 const Search = () => {
   const dispatch = useDispatch();
   const history = useHistory()
-  const [aircraft, setAircraft] = useState("");
+  const [habitat, setHabitat] = useState("");
   const [searchDate, setSearchDate] = useState()
-
+  const [value, newValue] = useState(new Date());
 
 
 
@@ -56,7 +54,7 @@ const Search = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(searchMap({ aircraft, searchDate }));
+    await dispatch(searchMap({ habitat, searchDate }));
     return history.push('/map')
   };
 
@@ -69,14 +67,20 @@ Preferred State
           </label>
         </div>
         <div>
-          <div>Duration</div>
+        <div>Choose duration
+          <br></br>
+      <DatePicker
+        onChange={newValue}
+        value={value}
+      />
+    </div>
         </div>
         <div>
             <div>Where would you like to hibernate?</div>
             <select
               id="select-field"
-              value={aircraft}
-              onChange={(e) => setAircraft(e.target.value)}
+              value={habitat}
+              onChange={(e) => setHabitat(e.target.value)}
             >
               <option value={""}>pick a habitat</option>
               <option value={"Arctic"}>Arctic</option>

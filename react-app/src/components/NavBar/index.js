@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './NavBar.css'
 import { NavLink } from "react-router-dom";
 import airbnb_logo from "../../img/airbnb-logo.png"
-import { openSignup, openLogin } from "../../store/modal";
-import { useDispatch, useSelector } from "react-redux";
+import SignupModal from '../SignupModal/index'
+import LoginModal from '../LoginModal';
 
 function NavBar() {
-    const dispatch = useDispatch();
-    const modal = useSelector((state) => state.modal.signupShow);
-    // <p onClick={() => dispatch(openLogin())}>Log in</p>
-    // <p onClick={() => dispatch(openSignup())}>Sign up</p>
+    const [signupOpen, setSignupOpen] =  useState(false)
+    const [loginOpen, setLoginOpen] = useState(false)
+
+    const handleSignupOpen = () => {
+        setSignupOpen(!signupOpen)
+        if(loginOpen === true){
+            setLoginOpen(false)
+        }
+
+    }
+
+    const handleLoginOpen = () => {
+        setLoginOpen(!loginOpen)
+        if(signupOpen === true){
+            setSignupOpen(false)
+        }
+    }
 
     return (
         <div className='NavBar'>
@@ -25,21 +38,24 @@ function NavBar() {
             </div>
             <div className='NavBar__right'>
 
-            <div>
+            <div onClick={handleSignupOpen}>
                     <img
-                        onClick={() => dispatch(openSignup())}
                         className="NavBar__icon"
                         src={airbnb_logo}
                         alt="logo"
-                    /> Become a Bear </div>
-                < NavLink to='/login' >
+                    /> Become a Bear
+            </div>
+            <div onClick={handleLoginOpen}>
+
                     <img
                         className="NavBar__icon"
                         src={airbnb_logo}
                         alt="logo"
                     />login
-            </NavLink>
             </div>
+            </div>
+            <SignupModal isOpen={signupOpen} handleClose={handleSignupOpen}/>
+            <LoginModal isOpen={loginOpen} handleClose={handleLoginOpen}/>
         </div>
     )
 }

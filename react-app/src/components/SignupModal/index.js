@@ -1,23 +1,19 @@
 import React from "react";
 import Modal from "react-modal";
-import { useSelector, useDispatch } from "react-redux";
-import { closeSignup } from "../../store/modal.js";
-import SignUpForm from "./SignUpForm";
+import SignUpForm from "../auth/SignUpForm";
 
 Modal.setAppElement(document.getElementById("root"));
 
-const SignupModal = ({ authenticated, setAuthenticated }) => {
-  const dispatch = useDispatch();
-  const signupState = useSelector((state) => state.modal.signupShow);
+const SignupModal = ({ authenticated, setAuthenticated, isOpen, handleClose }) => {
 
-  const closeModal = () => dispatch(closeSignup());
+
 
   return (
     <>
       <Modal
-        isOpen={signupState}
+        isOpen={isOpen}
         closeTimeoutMS={200}
-        onRequestClose={closeModal}
+       onRequestClose={handleClose}
         contentLabel="Signup Modal"
         overlayClassName="OuterModal"
         // style={customStyles}
@@ -27,6 +23,7 @@ const SignupModal = ({ authenticated, setAuthenticated }) => {
           authenticated={authenticated}
           setAuthenticated={setAuthenticated}
         />
+        <button onClick={handleClose}></button>
       </Modal>
     </>
   );
