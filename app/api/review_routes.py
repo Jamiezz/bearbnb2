@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify, request
 from app.models import den, User, Picture, Review, UserImage, Bookedden, db, densamenitiesjoins, Amenity
 
 from sqlalchemy import func
-from app.forms.booking_form import BookingForm
+from app.forms.reservation_form import ReservationForm
 import datetime
 den_routes = Blueprint('dens', __name__)
 

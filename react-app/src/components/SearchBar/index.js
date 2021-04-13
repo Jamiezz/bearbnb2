@@ -75,12 +75,16 @@ const Search = () => {
     <div id="search-wrap">
       <form className="search" onSubmit={onSubmit}>
         <div className="search-location">
-          <label>
-Preferred State
-          </label>
+        <div>Choose Start Date
+          <br></br>
+      <DatePicker
+        onChange={newValue}
+        value={value}
+      />
+    </div>
         </div>
         <div>
-        <div>Choose duration
+        <div>Choose End Date
           <br></br>
       <DatePicker
         onChange={newValue}
