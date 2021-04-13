@@ -5,7 +5,7 @@ from app.models import db, Den
 den_routes = Blueprint("dens", __name__)
 
 
-#get all den_routes
+#get all den_routes what
 @den_routes.route('')
 def alldens():
     dens = den.query.all()

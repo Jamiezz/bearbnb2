@@ -5,7 +5,7 @@ import airbnb_logo from "../../img/airbnb-logo.png"
 import SignupModal from '../SignupModal/index'
 import LoginModal from '../LoginModal';
 
-function NavBar() {
+function NavBar({ authenticated, setAuthenticated }) {
     const [signupOpen, setSignupOpen] =  useState(false)
     const [loginOpen, setLoginOpen] = useState(false)
 
@@ -54,8 +54,18 @@ function NavBar() {
                     />login
             </div>
             </div>
-            <SignupModal isOpen={signupOpen} handleClose={handleSignupOpen}/>
-            <LoginModal isOpen={loginOpen} handleClose={handleLoginOpen}/>
+            <SignupModal
+            isOpen={signupOpen}
+            handleClose={handleSignupOpen}
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+            />
+            <LoginModal
+            isOpen={loginOpen}
+            handleClose={handleLoginOpen}
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+            />
         </div>
     )
 }

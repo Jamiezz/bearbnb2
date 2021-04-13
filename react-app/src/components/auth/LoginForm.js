@@ -31,7 +31,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   if (authenticated) {
     return <Redirect to="/" />;
   }
-
+debugger
   return (
     <form onSubmit={onLogin}>
       <div>

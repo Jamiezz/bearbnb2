@@ -1,5 +1,5 @@
 from .db import db
-from sqlalchemy.orm import relationship
+# from sqlalchemy.orm import relationship
 
 
 class Den(db.Model):

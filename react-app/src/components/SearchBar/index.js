@@ -1,65 +1,63 @@
 import "./SearchBar.css";
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import moment from 'moment';
 import SearchButton from "./SearchButton"
 import DatePicker from 'react-date-picker'
 
 
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { getAllBookings } from "../../store/booking";
+import { getAllDens } from "../../store/dens";
 
 
 import { searchMap } from "../../store/location";
 
 
-const dateConverter = (dateObj) => {
-  return moment(dateObj).format("YYYY-MM-DD")
-}
+// const dateConverter = (dateObj) => {
+//   return moment(dateObj).format("YYYY-MM-DD")
+// }
 
-export function DatePickerExample({ setSearchDate }) {
-  const [date, setDate] = useState();
-
-  const dispatch = useDispatch();
-  const bookings = useSelector((state) => state?.allBookings);
-
-  useEffect(() => {
-    dispatch(getAllBookings(bookings));
-  }, [dispatch, bookings]);
+// export function DatePickerExample({ setSearchDate }) {
+//   const [date, setDate] = useState();
 
 
-  const currentDate = new Date();
 
-  useEffect(() => {
-    setSearchDate(dateConverter(date))
-  }, [date])
-  return (
-    <DatePicker
-      date={date}
-      format="MM-dd-yyyy"
-      onDateChange={setDate}
-      minimumDate={currentDate}
-    // locale={enGB}
-    >
-      {({ inputProps, focused }) => (
-        <input
-          id="datebox"
-          className={"input" + (focused ? " -focused" : "")}
-          {...inputProps}
-        />
-      )}
-    </DatePicker>
-  );
-}
+//   useEffect(() => {
+//     dispatch(getAllDens(dens));
+//   }, [dispatch]);
+
+
+//   const currentDate = new Date();
+
+//   useEffect(() => {
+//     setSearchDate(dateConverter(date))
+//   }, [date])
+//   return (
+//     <DatePicker
+//       date={date}
+//       format="MM-dd-yyyy"
+//       onDateChange={setDate}
+//       minimumDate={currentDate}
+//     // locale={enGB}
+//     >
+//       {({ inputProps, focused }) => (
+//         <input
+//           id="datebox"
+//           className={"input" + (focused ? " -focused" : "")}
+//           {...inputProps}
+//         />
+//       )}
+//     </DatePicker>
+//   );
+// }
+
 const Search = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const history = useHistory()
   const [habitat, setHabitat] = useState("");
   const [searchDate, setSearchDate] = useState()
   const [value, newValue] = useState(new Date());
-
+  const dens = useSelector((state) => state?.allDens);
 
 
   useEffect(() => {
