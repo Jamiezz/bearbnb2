@@ -7,6 +7,11 @@ import SearchButton from "./SearchButton"
 import DatePicker from 'react-date-picker'
 
 
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { getAllBookings } from "../../store/booking";
+
+
 import { searchMap } from "../../store/location";
 
 

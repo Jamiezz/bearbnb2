@@ -3,10 +3,11 @@ import thunk from "redux-thunk";
 
 // import locationReducer from './location'
 import modalReducer from './modal'
+import bookingReducer from './bookings'
 
 const rootReducer = combineReducers({
   modal: modalReducer,
-  // location: locationReducer
+  booking: bookingReducer,
 });
 
 let enhancer;
