@@ -22,6 +22,14 @@ const dateConverter = (dateObj) => {
 export function DatePickerExample({ setSearchDate }) {
   const [date, setDate] = useState();
 
+  const dispatch = useDispatch();
+  const bookings = useSelector((state) => state?.allBookings);
+
+  useEffect(() => {
+    dispatch(getAllBookings(bookings));
+  }, [dispatch, bookings]);
+
+
   const currentDate = new Date();
 
   useEffect(() => {
