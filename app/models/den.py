@@ -10,7 +10,6 @@ class den(db.Model):
     description = db.Column(db.Text)
     price = db.Column(db.Numeric, nullable=False)
 
-
     def to_dict(self):
         return {
             "id": self.id,

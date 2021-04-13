@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import db, Booking, Picture, Review, State, Comment, Reservation, User
+from app.models import db, Booking
 
 booking_routes = Blueprint("bookings", __name__)
 
