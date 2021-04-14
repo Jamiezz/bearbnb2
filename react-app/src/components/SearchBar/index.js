@@ -13,50 +13,14 @@ import { getAllDens } from "../../store/dens";
 import { searchMap } from "../../store/location";
 
 
-// const dateConverter = (dateObj) => {
-//   return moment(dateObj).format("YYYY-MM-DD")
-// }
-
-// export function DatePickerExample({ setSearchDate }) {
-//   const [date, setDate] = useState();
-
-
-
-//   useEffect(() => {
-//     dispatch(getAllDens(dens));
-//   }, [dispatch]);
-
-
-//   const currentDate = new Date();
-
-//   useEffect(() => {
-//     setSearchDate(dateConverter(date))
-//   }, [date])
-//   return (
-//     <DatePicker
-//       date={date}
-//       format="MM-dd-yyyy"
-//       onDateChange={setDate}
-//       minimumDate={currentDate}
-//     // locale={enGB}
-//     >
-//       {({ inputProps, focused }) => (
-//         <input
-//           id="datebox"
-//           className={"input" + (focused ? " -focused" : "")}
-//           {...inputProps}
-//         />
-//       )}
-//     </DatePicker>
-//   );
-// }
 
 const Search = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const [habitat, setHabitat] = useState("");
   const [searchDate, setSearchDate] = useState()
-  const [value, newValue] = useState(new Date());
+  const [startValue, setStartValue] = useState(new Date());
+  const [endValue, setEndValue] = useState(new Date());
   const dens = useSelector((state) => state?.allDens);
 
 
@@ -73,44 +37,43 @@ const Search = () => {
     <div id="search-wrap">
       <form className="search" onSubmit={onSubmit}>
         <div className="search-location">
-        <div>Choose Start Date
+          <div>Choose Start Date
           <br></br>
-      <DatePicker
-        onChange={newValue}
-        value={value}
-      />
-    </div>
-        </div>
-        <div>
-        <div>Choose End Date
-          <br></br>
-      <DatePicker
-        onChange={newValue}
-        value={value}
-      />
-    </div>
-        </div>
-        <div>
-            <div>Where would you like to hibernate?</div>
-            <select
-              id="select-field"
-              value={habitat}
-              onChange={(e) => setHabitat(e.target.value)}
-            >
-              <option value={""}>pick a habitat</option>
-              <option value={"Arctic"}>Arctic</option>
-              <option value={"Woodlands"}>Woodlands</option>
-              <option value={"RockyMountains"}>Rocky Mountains</option>
-              <option value={"Chicago"}>Chicago</option>
-              <option value={"GreenBay"}>Green Bay</option>
-              <option value={"Appalachia"}>Appalachia</option>
-            </select>
+            <DatePicker
+              onChange={setStartValue}
+              value={startValue}
+            />
           </div>
-
+        </div>
+        <div>
+          <div>Choose End Date
+          <br></br>
+            <DatePicker
+              onChange={setEndValue}
+              value={endValue}
+            />
+          </div>
+        </div>
+        <div>
+          <div>Where would you like to hibernate?</div>
+          <select
+            id="select-field"
+            value={habitat}
+            onChange={(e) => setHabitat(e.target.value)}
+          >
+            <option value={""}>pick a habitat</option>
+            <option value={"Arctic"}>Arctic</option>
+            <option value={"Woodlands"}>Woodlands</option>
+            <option value={"RockyMountains"}>Rocky Mountains</option>
+            <option value={"Chicago"}>Chicago</option>
+            <option value={"GreenBay"}>Green Bay</option>
+            <option value={"Appalachia"}>Appalachia</option>
+          </select>
+        </div>
         <div>
           <div>Other Bears?</div>
         </div>
-          <SearchButton />
+        <SearchButton />
       </form>
     </div>
   );

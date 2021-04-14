@@ -1,7 +1,9 @@
 from .db import db
 
+
 class Reservation(db.Model):
     __tablename__ = "reservations"
+
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     denId = db.Column(db.Integer, db.ForeignKey("dens.id"), nullable=False)

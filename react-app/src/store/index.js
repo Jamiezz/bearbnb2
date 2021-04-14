@@ -4,10 +4,12 @@ import thunk from "redux-thunk";
 // import locationReducer from './location'
 import modalReducer from './modal'
 import denReducer from './dens'
+import reservationReducer from './reservation'
 
 const rootReducer = combineReducers({
   modal: modalReducer,
   den: denReducer,
+  reservations: reservationReducer
 });
 
 let enhancer;

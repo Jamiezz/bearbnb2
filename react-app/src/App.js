@@ -10,6 +10,7 @@ import User from "./components/User";
 import { authenticate } from "./services/auth";
 import HomePage from "./components/HomePage"
 import Bear from './img/bear-tree.png'
+import Reservations from './components/Reservations'
 
 const arrOfImgs = [Bear]
 
@@ -35,14 +36,10 @@ function App() {
   return (
     <>
       <BrowserRouter>
-
-
         <NavBar
           authenticated={authenticated}
           setAuthenticated={setAuthenticated}
         />
-        <HomePage />
-
         <Switch>
           {/* <Route path="/login" exact={true}>
             <LoginForm
@@ -50,6 +47,9 @@ function App() {
               setAuthenticated={setAuthenticated}
             />
           </Route> */}
+          <Route path="/reservations" exact={true}>
+            <Reservations />
+          </Route>
           <Route path="/sign-up" exact={true}>
             <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
           </Route>
@@ -60,7 +60,8 @@ function App() {
             <User />
           </ProtectedRoute>
           <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-            <h1>My Home Page</h1>
+
+            <HomePage />
           </ProtectedRoute>
         </Switch>
       </BrowserRouter>
