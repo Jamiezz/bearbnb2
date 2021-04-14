@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import './NavBar.css'
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import airbnb_logo from "../../img/airbnb-logo.png"
 import SignupModal from '../SignupModal/index'
 import LoginModal from '../LoginModal';
+import {useSelector} from 'react-redux'
 
 function NavBar({ authenticated, setAuthenticated }) {
+    const history = useHistory()
     const [signupOpen, setSignupOpen] =  useState(false)
     const [loginOpen, setLoginOpen] = useState(false)
+    const user = useSelector((state) => state?.user)
 
     const handleSignupOpen = () => {
         setSignupOpen(!signupOpen)
@@ -24,6 +27,10 @@ function NavBar({ authenticated, setAuthenticated }) {
         }
     }
 
+    const handleReservationButton = () => {
+
+    }
+
     return (
         <div className='NavBar'>
             <NavLink to='/'>
@@ -33,9 +40,17 @@ function NavBar({ authenticated, setAuthenticated }) {
                     alt="logo"
                 />BearBnb
             </NavLink>
-            <div className='NavBar__center'>
-                <input type="text" />
+            <div onClick={handleReservationButton}>
+                    <img
+                        className="NavBar__icon"
+                        src={airbnb_logo}
+                        alt="logo"
+                    /> Reservations
             </div>
+            {/* <div className='NavBar__center'>
+
+                <input type="text" />
+            </div> */}
             <div className='NavBar__right'>
 
             <div onClick={handleSignupOpen}>

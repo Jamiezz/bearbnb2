@@ -47,7 +47,7 @@ function App() {
               setAuthenticated={setAuthenticated}
             />
           </Route> */}
-          <Route path="/reservations" exact={true}>
+          <Route path="/reservations" exact={true} authenticated={authenticated}>
             <Reservations />
           </Route>
           <Route path="/sign-up" exact={true}>
@@ -60,7 +60,6 @@ function App() {
             <User />
           </ProtectedRoute>
           <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-
             <HomePage />
           </ProtectedRoute>
         </Switch>
